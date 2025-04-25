@@ -21,8 +21,8 @@ def Num(txt):
     while True:
         _ = input(f'{txt}: ')
         if _.isnumeric():
-           if 0 < int(_) < 10: return int(_)
-           else: print(f'Ошибка: Введите позицию от 1 до 9!\n')
+           if 0 < int(_) < 10 and board[int(_) - 1] == ' ': return int(_)
+           else: print(f'Ошибка: Введите незанятую позицию от 1 до 9!\n')
         else: print('Ошибка: Введенные данные не содержат чило!\n')
 
 # Игровой процесс
