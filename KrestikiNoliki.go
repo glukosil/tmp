@@ -19,7 +19,7 @@ func Num(txt string) int {
     fmt.Printf("%s: ", txt)
     fmt.Scanln(&x)
     y, err := strconv.Atoi(x)
-    if err == nil && y > 0 && y < 10 && board[y - 1] == " " { return y } else { fmt.Println("Ошибка: Введите цифру незанятого поля от 1 до 9!\n"); return Num(txt) }
+    if err == nil && y > 0 && y < 10 && board[y - 1] == " " { return y } else { fmt.Println("Ошибка ввода! Нужно ввести незанятую позицию от 1 до 9!\n"); return Num(txt) }
 }
 
 // Вывод игрового поля
