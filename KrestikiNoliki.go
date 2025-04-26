@@ -16,13 +16,10 @@ var (
 // Функция ввоад числа с проверкой
 func Num(txt string) int {
     var x string
-    for {
-        fmt.Printf("%s: ", txt)
-        fmt.Scanln(&x)
-        y, err := strconv.Atoi(x)
-        if err != nil { fmt.Println("Ошибка: Введенные данные не содержат чило!\n"); continue }
-        if y > 0 && y < 10 && board[y - 1] == " " { return y } else { fmt.Println("Ошибка: Введите цифру незанятого поля от 1 до 9!\n") }
-    }
+    fmt.Printf("%s: ", txt)
+    fmt.Scanln(&x)
+    y, err := strconv.Atoi(x)
+    if err == nil && y > 0 && y < 10 && board[y - 1] == " " { return y } else { fmt.Println("Ошибка: Введите цифру незанятого поля от 1 до 9!\n"); return Num(txt) }
 }
 
 // Вывод игрового поля

@@ -12,12 +12,9 @@ def Doska():
 
 # Функция ввода числа с проверкой
 def Num(txt):
-    while True:
-        _ = input(f'{txt}: ')
-        if _.isnumeric():
-           if 0 < int(_) < 10 and board[int(_) - 1] == ' ': return int(_)
-           else: print(f'Ошибка: Введите незанятую позицию от 1 до 9!\n')
-        else: print('Ошибка: Введенные данные не содержат чило!\n')
+    _ = input(f'{txt}: ')
+    if _.isnumeric() and 0 < int(_) < 10 and board[int(_) - 1] == ' ': return int(_)
+    else: print(f'Ошибка: Введите незанятую позицию от 1 до 9!\n'); return Num(txt)
 
 # Игровой процесс
 while True:
