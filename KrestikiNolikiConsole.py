@@ -14,7 +14,7 @@ def Doska():
 def Num(txt):
     _ = input(f'{txt}: ')
     if _.isnumeric() and 0 < int(_) < 10 and board[int(_) - 1] == ' ': return int(_)
-    else: print(f'Ошибка: Введите незанятую позицию от 1 до 9!\n'); return Num(txt)
+    else: print(f'Ошибка ввода! Нужно ввести незанятую позицию от 1 до 9!\n'); return Num(txt)
 
 # Игровой процесс
 while True:
@@ -22,6 +22,6 @@ while True:
     board[Num('Выберите позицию для хода') - 1] = player
     for _ in winList:
         if board[_[0]] == board[_[1]] == board[_[2]] != ' ': Doska(); print(f'\n\nИГРА ОКОНЧЕНА!\nПобедил игрок: {player}'); exit()
-    if ' ' not in board: Doska(); print('\n\nИГРА ОКОНЧЕНА!\nУ вас ничья!'); exit()
+    if ' ' not in board: Doska(); print('\n\nИГРА ОКОНЧЕНА!\nУ вас ничья!'); break
     if player == 'X': player = '0'
     else: player = 'X'
