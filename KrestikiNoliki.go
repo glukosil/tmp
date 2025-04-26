@@ -27,12 +27,9 @@ func Num(txt string) int {
 
 // Вывод игрового поля
 func Doska() {
-    fmt.Print("\033[H\033[2J")
-    fmt.Println("Консольная игра \"Крестики-Нолики\"!")
-    fmt.Println("\n  ПОЛЕ   \t\tНУМЕРАЦИЯ")
+    fmt.Println("\033[H\033[2JКонсольная игра \"Крестики-Нолики\"!\n\n  ПОЛЕ   \t\tНУМЕРАЦИЯ")
     for i := 0; i < 3; i++ {
-       fmt.Printf("%s\t\t%s\n", strings.Repeat("-", 9), strings.Repeat("-", 9))
-       fmt.Printf("%s | %s | %s\t\t%d | %d | %d\n", board[i*3], board[i*3+1], board[i*3+2], i*3+1, i*3+2, i*3+3)
+        fmt.Printf("%s\t\t%s\n%s | %s | %s\t\t%d | %d | %d\n", strings.Repeat("-", 9), strings.Repeat("-", 9), board[i*3], board[i*3+1], board[i*3+2], i*3+1, i*3+2, i*3+3)
     }
     fmt.Printf("%s\t\t%s\n\nХОД ИГРОКА: %s\n", strings.Repeat("-", 9), strings.Repeat("-", 9), player)
 }
