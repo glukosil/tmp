@@ -15,7 +15,7 @@ def Num(txt):
     _ = input(f'{txt}: ')
     if _ == '0': print('\nВы завершили игру. До встречи!'); exit()
     if _.isalpha() and len(_) == const: return _.upper()
-    else: print(f'Ошибка ввода! Нужно ввести {const} значную строку из букв A-Z!'); return Num(txt)
+    else: print(f'Ошибка ввода! Нужно ввести {const}-значную строку из букв A-Z!'); return Num(txt)
 
 # Проверка хода
 def Proverka(txt, ind):
@@ -33,7 +33,7 @@ def main():
     for x in range(pitka):
        print(f'\033[H\033[2JКонсольная игра "БЕЙЗЛ 2.0"!\n\nЗагаданная {const}-значная последовательность букв A-Z: {hide}\nПопыток: {pitka}\n\nПОДСКАЗКА:\nИспользованные буквы:{buk}\nПредыдущий ход: {old}\n\nРЕЗУЛЬТАТ ХОДА:\n|', end='')
        for _ in range(const): print(f'{skaz[ugad[_]].center(12)}|', end = '')
-       Proverka(Num(f'\n\nПОПЫТКА {x + 1}:\nВведите предполагаемую {const} значную последовательность (0 - для выхода)'), x)
+       Proverka(Num(f'\n\nПОПЫТКА {x + 1}:\nВведите предполагаемую {const}-значную последовательность (0 - для выхода)'), x)
     print('\n\nВЫ ПРОИГРАЛИ!\nЗакончились попытки!\nБыло загадано слово: {sec}')
 
 if __name__ == '__main__':  main()
