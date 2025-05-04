@@ -3,8 +3,6 @@ package main
 import (
     "fmt"
     "strings"
-    "unicode"
-    "bufio"
     "os"
     "math/rand"
 )
@@ -22,19 +20,19 @@ var (
 
 func UpYesNo(txt string) bool {
     for _, r := range txt {
-       if !unicode.IsUpper(r) || r < 'A' || r > 'Z' { return false }
+       if r < 'A' || r > 'Z' { return false }
     }
     return len(txt) > 0
 }
 
 // Функция ввоад числа с проверкой
 func Num(txt string) string {
+    var p string
     fmt.Printf("%s: ", txt)
-    in := bufio.NewReader(os.Stdin)
-    line, _ := in.ReadString('\n')
-    p := strings.ToUpper(strings.Trim(line, "\n"))
+    fmt.Scanln(&p)
+    p = strings.ToUpper(p)
     if p == "0" { fmt.Println("\nВы завершили игру. До встречи!"); os.Exit(0) }
-    if len(p) == cons && UpYesNo(p) { return strings.ToUpper(p) } else { fmt.Printf("Ошибка ввода! Нужно ввести %d-значную строку из букв A-Z!", cons); return Num(txt) }
+    if len(p) == cons && UpYesNo(p) { return p } else { fmt.Printf("Ошибка ввода! Нужно ввести %d-значную строку из букв A-Z!", cons); return Num(txt) }
 }
 
 // Проверка хода
